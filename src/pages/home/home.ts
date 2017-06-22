@@ -64,7 +64,7 @@ export class HomePage {
         .map(res => res.json())
         .subscribe(data => {
         this.addMarkersToMap(data);
-        console.log(data);
+        //console.log(data);
 
       });
     }
