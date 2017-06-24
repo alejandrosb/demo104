@@ -16,7 +16,7 @@ export class HomePage {
   tasks: FirebaseListObservable<any>;
   lat:any = 0.0;
   lon:any = 0.0;
-
+  items: FirebaseListObservable<any[]>;
   @ViewChild('mapContainer') mapContainer: ElementRef;
   map: any;
 
@@ -45,7 +45,7 @@ export class HomePage {
 
   ionViewWillEnter() {
     this.displayGoogleMap();
-    this.getMarkers();
+    this.addMarkersToMap();
   }
 
   displayGoogleMap() {
@@ -59,23 +59,23 @@ export class HomePage {
       this.map = new google.maps.Map(this.mapContainer.nativeElement, mapOptions);
     }
 
-    getMarkers() {
-      this.http.get('https://geoloc-24b81.firebaseio.com/Registros.json')
-        .map(res => res.json())
-        .subscribe(data => {
-        this.addMarkersToMap(data);
-        //console.log(data);
+    addMarkersToMap() {
 
-      });
-    }
+      var position;
+      var myMarker;
+      this.items = this.database.list('/Registros',{preserveSnapshot:true});
+      this.items.subscribe(snapshots => {
+          snapshots.forEach(snapshot => {
+      
+              position = new google.maps.LatLng(snapshot.val().lat, snapshot.val().long);
+              myMarker = new google.maps.Marker({position: position, title: snapshot.val().zona});
+              myMarker.setMap(this.map);
 
-    addMarkersToMap(markers) {
-      for(let marker of markers) {
-        var position = new google.maps.LatLng(marker.lat, marker.long);
-        var myMarker = new google.maps.Marker({position: position, title: marker.title});
-        myMarker.setMap(this.map);
-      }
-    }
+              });
+
+            });
+
+          }
 
 
     createTask(){
