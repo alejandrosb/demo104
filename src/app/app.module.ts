@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { Geolocation } from '@ionic-native/geolocation';
+import { Diagnostic } from '@ionic-native/diagnostic';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -41,6 +42,7 @@ apiKey: "AIzaSyCuQbRC3V2RF8WTJ0oG83qlZz89yQARqHQ",
   providers: [
     StatusBar,
     SplashScreen,
+    Diagnostic,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Geolocation
   ]
