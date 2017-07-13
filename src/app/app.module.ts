@@ -13,12 +13,12 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 export const firebaseConfig = {
-apiKey: "AIzaSyCuQbRC3V2RF8WTJ0oG83qlZz89yQARqHQ",
-  authDomain: "geoloc-24b81.firebaseapp.com",
-  databaseURL: "https://geoloc-24b81.firebaseio.com",
-  projectId: "geoloc-24b81",
-  storageBucket: "geoloc-24b81.appspot.com",
-  messagingSenderId: "600758599567"
+apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  authDomain: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  databaseURL: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  projectId: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  storageBucket: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  messagingSenderId: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 };
 
 
